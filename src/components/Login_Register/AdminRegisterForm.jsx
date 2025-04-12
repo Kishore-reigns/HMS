@@ -27,7 +27,7 @@ const AdminRegisterForm = () => {
             alert("registration successful")
             navigate('/role/AdminLogin')
         }catch(err){
-            console.error(error)
+            console.error(err)
         }
        
     }else{

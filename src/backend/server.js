@@ -4,6 +4,7 @@ const cors = require('cors')
 const roleRoutes = require('./Routes/roleRoutes')
 const patientRoutes = require('./Routes/patientRoutes')
 const doctorRoutes = require('./Routes/doctorRoutes')
+const adminRoutes = require('./Routes/AdminRoutes')
 
 const PORT = 5000
 const app = express()
@@ -19,6 +20,7 @@ mongoose.connect('mongodb://localhost:27017/HMS',{
 app.use('/api/roles',roleRoutes)
 app.use('/api/patient',patientRoutes)
 app.use('/api/doctor',doctorRoutes)
+app.use('/api/admin',adminRoutes)
 
 
 app.listen(PORT, ()=>{
