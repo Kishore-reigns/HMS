@@ -22,7 +22,7 @@ const Role = ({type}) => {
   }
 
   useEffect(() => {
-    axios.get('http://localhost:5000/roles')
+    axios.get('http://localhost:5000/api/roles')
       .then((res) => {
         console.log('Fetched Roles:', res.data)
 

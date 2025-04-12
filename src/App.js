@@ -9,6 +9,9 @@ import PatientRegisterForm from './components/Login_Register/PatientRegisterForm
 import DoctorRegisterForm from './components/Login_Register/DoctorRegisterForm';
 import AdminRegisterForm from './components/Login_Register/AdminRegisterForm';
 import CommonLoginForm from './components/Login_Register/CommonLoginForm';
+import Patient from './pages/Patient';
+import Doctor from './pages/Doctor';
+import Admin from './pages/Admin';
 
 function App() {
   return (
@@ -23,6 +26,9 @@ function App() {
       <Route path="/role/PatientLogin" element={<CommonLoginForm type='patient'/>} />
       <Route path="/role/DoctorLogin" element={<CommonLoginForm type='doctor'/>} />
       <Route path="/role/AdminLogin" element={<CommonLoginForm type='admin'/>} />
+      <Route path='/patient' element={<Patient/>}/>
+      <Route path='/doctor' element={<Doctor/>}/>
+      <Route path='/admin' element={<Admin/>}/>
 
 
 

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Typography, Container,Grid, FormControl, FormLabel, RadioGroup, FormControlLabel,TextField ,Radio, Button } from '@mui/material'
-import { useAsyncError } from 'react-router-dom'
+import { useAsyncError, useNavigate } from 'react-router-dom'
 
 import validate from '../../js/registerValidate'
+import axios from 'axios'
 
 const DoctorRegisterForm = () => {
 
@@ -23,10 +24,24 @@ const DoctorRegisterForm = () => {
   const [workingHours,SetWH] = useState('')
  
 
-  const handleValidate =()=>{
-    const data = {firstName,lastName,date,email,password,confirmPass,phone,specialization,yoe,mln,qualification,workingHours}
+   let navigate = useNavigate()
+
+  const handleValidate = async()=>{
+    const data = {firstName,lastName,date,email,password,confirmPass,gender,phone,specialization,yoe,mln,qualification,workingHours}
     const msg = validate(data)
-    alert(msg)
+    if(msg === 'success'){
+        try{
+            const response = await axios.post('http://localhost:5000/api/doctor/register',data)
+            alert("register successful")
+            navigate('/role/DoctorLogin')
+        }catch(error){
+            console.error('Registration error:', error)
+            alert('Registration failed. Please try again later.')
+        }
+        
+    }else{
+        alert(msg)
+    }
   }
 
  
@@ -48,25 +63,25 @@ const DoctorRegisterForm = () => {
 
     <Grid container direction="column" spacing={2}>
         <Grid item xs={6}>
-         <TextField fullWidth label="first name"  required onChange={(e)=> SetFirstName(e.target.value)}/>
+         <TextField fullWidth label="first name" value={firstName} required onChange={(e)=> SetFirstName(e.target.value)}/>
         </Grid>
         <Grid item xs={6}>
-         <TextField fullWidth label="last name"  onChange={(e)=> SetLastName(e.target.value)}/>
+         <TextField fullWidth label="last name" value={lastName} onChange={(e)=> SetLastName(e.target.value)}/>
         </Grid>
       <Grid item>
-        <TextField label = "Date of Birth" type = "date" fullWidth  InputLabelProps={{ shrink: true }} onChange={(e)=> SetDate(e.target.value)}/>
+        <TextField label = "Date of Birth" type = "date" value={date} fullWidth  InputLabelProps={{ shrink: true }} onChange={(e)=> SetDate(e.target.value)}/>
       </Grid>
       <Grid item>
-        <TextField label = "Phone" fullWidth  onChange={(e)=> setPhone(e.target.value)} required/>
+        <TextField label = "Phone" fullWidth value={phone} onChange={(e)=> setPhone(e.target.value)} required/>
       </Grid>
       <Grid item>
-        <TextField fullWidth label="Email" required onChange ={ (e)=> SetEmail(e.target.value)}/>
+        <TextField fullWidth label="Email" value={email} required onChange ={ (e)=> SetEmail(e.target.value)}/>
       </Grid>
       <Grid item xs={6}>
-        <TextField  fullWidth label="Password" type="password" xs={6} required onChange = { (e)=> SetPassword(e.target.value)} />
+        <TextField  fullWidth label="Password" type="password" value={password} xs={6} required onChange = { (e)=> SetPassword(e.target.value)} />
       </Grid>
       <Grid item xs={6}>
-      <TextField fullWidth  label="ConPassword" type="password" xs={6} required onChange={ (e)=>SetConPass(e.target.value)}/>
+      <TextField fullWidth  label="ConPassword" type="password" xs={6}  value={confirmPass} required onChange={ (e)=>SetConPass(e.target.value)}/>
       </Grid>
       <Grid item>
       <FormControl>
@@ -83,23 +98,23 @@ const DoctorRegisterForm = () => {
       </Grid>
 
       <Grid item xs={6}>
-         <TextField fullWidth label="Specialization"  required onChange={(e)=> SetSpecialization(e.target.value)}/>
+         <TextField fullWidth label="Specialization" value={specialization}  required onChange={(e)=> SetSpecialization(e.target.value)}/>
         </Grid>
 
         <Grid item xs={6}>
-         <TextField fullWidth label="Years of Experience" type='number'  required onChange={(e)=> SetYOE(e.target.value)}/>
+         <TextField fullWidth label="Years of Experience" type='number' value={yoe}  required onChange={(e)=> SetYOE(e.target.value)}/>
         </Grid>
 
         <Grid item xs={6}>
-         <TextField fullWidth label="Medial License number"  required onChange={(e)=> SetMLN(e.target.value)}/>
+         <TextField fullWidth label="Medial License number" value={mln}  required onChange={(e)=> SetMLN(e.target.value)}/>
         </Grid>
 
         <Grid item xs={6}>
-         <TextField fullWidth label="Qualification"  required onChange={(e)=> SetQualification(e.target.value)}/>
+         <TextField fullWidth label="Qualification" value={qualification}  required onChange={(e)=> SetQualification(e.target.value)}/>
         </Grid>
 
         <Grid item xs={6}>
-         <TextField fullWidth label="Working Hours" type='number'  required onChange={(e)=> SetWH(e.target.value)}/>
+         <TextField fullWidth label="Working Hours" type='number' value={workingHours}  required onChange={(e)=> SetWH(e.target.value)}/>
         </Grid>
 
 
