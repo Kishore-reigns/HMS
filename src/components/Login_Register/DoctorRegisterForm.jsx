@@ -36,7 +36,7 @@ const DoctorRegisterForm = () => {
     <Container
     maxWidth="sm"
     sx={{
-      height: '80vh',
+      height: '120vh',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',

@@ -7,8 +7,9 @@ const Nav = () => {
 
   let nav = useNavigate()
 
-  let  NavigateToRole =()=>{
-    nav('/role')
+  let  NavigateToRole =(type)=>{
+    if(type === 'login' )nav('/role_login')
+    else if(type === 'register')nav('/role_register')
   }
 
   return (
@@ -16,8 +17,8 @@ const Nav = () => {
         <Toolbar>
             <Typography variant='h5' component='div' sx={{flexGrow:1}}>KR HMS</Typography>
 
-            <Button color = "inherit" onClick={NavigateToRole}>Login</Button>
-            <Button color = "inherit" onClick={NavigateToRole} >Register</Button>
+            <Button color = "inherit" onClick={ () => NavigateToRole('login')}>Login</Button>
+            <Button color = "inherit" onClick={ () => NavigateToRole('register')} >Register</Button>
             <Button color = "inherit">About</Button>
             
         </Toolbar>

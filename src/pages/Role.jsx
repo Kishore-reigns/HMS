@@ -1,9 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import { Grid, Paper, Typography, ButtonBase } from '@mui/material'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
-const Role = () => {
+const Role = ({type}) => {
   const [roles, setRoles] = useState([])
+  const navigate = useNavigate()
+
+  const handleclick = (role) =>{
+    if(type === 'register'){
+        if(role === 'Patient') navigate('/role/PatientRegister')
+        else if ( role === 'Doctor') navigate('/role/DoctorRegister')
+        else if ( role === 'Admin')navigate('/role/AdminRegister')
+    }
+    else if(type === 'login'){
+        if(role === 'Patient') navigate('/role/PatientLogin')
+        else if ( role === 'Doctor') navigate('/role/DoctorLogin')
+        else if ( role === 'Admin')navigate('/role/AdminLogin')
+    } 
+   
+  }
 
   useEffect(() => {
     axios.get('http://localhost:5000/roles')
@@ -26,6 +42,7 @@ const Role = () => {
       {roles.map((e, idx) => (
         <Grid item key={idx}>
           <ButtonBase
+          onClick={ ()=> handleclick(e.title)}
             sx={{ borderRadius: '16px',overflow: 'hidden', textAlign: 'left',width: '100%',height: 300, 
 display: 'block', border: '2px solid #1976d2',
             }}
