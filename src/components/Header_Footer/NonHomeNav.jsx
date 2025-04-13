@@ -19,12 +19,18 @@ const NonHomeNav = () => {
         nav('/about')
     }
 
+    let gotoContact = ()=>{
+        nav('/contact')
+    }
+
   return (
     <AppBar position='staitc'>
         <Toolbar>
             <Typography variant='h5' component='div' sx={{flexGrow:1}}>KR HMS</Typography>
-            <Button color = "inherit" onClick={gotoAbout}>About</Button>
+            
             <Button color = "inherit" onClick={handleLogout}>Logout</Button>
+            <Button color = "inherit" onClick={gotoAbout}>About</Button>
+            <Button color = "inherit" onClick={gotoContact}>Contact</Button>
             
         </Toolbar>
     </AppBar>

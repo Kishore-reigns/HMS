@@ -12,6 +12,14 @@ const Nav = () => {
     else if(type === 'register')nav('/role_register')
   }
 
+  let gotoAbout =()=>{
+    nav('/about')
+  }
+
+  let gotoContact = ()=>{
+    nav('/contact')
+  }
+
   return (
     <AppBar position='staitc'>
         <Toolbar>
@@ -19,7 +27,8 @@ const Nav = () => {
 
             <Button color = "inherit" onClick={ () => NavigateToRole('login')}>Login</Button>
             <Button color = "inherit" onClick={ () => NavigateToRole('register')} >Register</Button>
-            <Button color = "inherit">About</Button>
+            <Button color = "inherit" onClick={gotoAbout}>About</Button>
+            <Button color = "inherit" onClick={gotoContact}>Contact</Button>
             
         </Toolbar>
     </AppBar>
