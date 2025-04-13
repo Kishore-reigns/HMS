@@ -28,7 +28,7 @@ const CommonLoginForm = ({type}) => {
         navigate('/doctor')
       }else if(type === 'admin'){
         response = await axios.post('http://localhost:5000/api/admin/login', data);
-        localStorage.setItem('user',JSON.stringify({...response.data , role:'doctor'}))
+        localStorage.setItem('user',JSON.stringify({...response.data , role:'admin'}))
         navigate('/admin')
       }
       console.log('login successul',response.data)
