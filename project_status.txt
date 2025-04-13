@@ -1,0 +1,17 @@
+Done : 
+    patient login
+    doctor login
+    admin login
+    patient register
+    doctor register
+    admin register
+    added backend
+    added session
+    connected db
+    connected routes
+
+to be done :
+    features in patient , doctor , admin
+    about us
+    contact
+    forgot password
