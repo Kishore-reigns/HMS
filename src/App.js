@@ -12,6 +12,7 @@ import CommonLoginForm from './components/Login_Register/CommonLoginForm';
 import Patient from './pages/Patient';
 import Doctor from './pages/Doctor';
 import Admin from './pages/Admin';
+import About from './pages/About';
 
 function App() {
   return (
@@ -29,8 +30,7 @@ function App() {
       <Route path='/patient' element={<Patient/>}/>
       <Route path='/doctor' element={<Doctor/>}/>
       <Route path='/admin' element={<Admin/>}/>
-
-
+      <Route path='/about' element={<About/>}/>
 
     </Routes>
   );

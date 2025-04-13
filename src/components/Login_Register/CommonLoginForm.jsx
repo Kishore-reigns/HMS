@@ -20,12 +20,15 @@ const CommonLoginForm = ({type}) => {
     try{
       if(type === 'patient'){
         response = await axios.post('http://localhost:5000/api/patient/login', data);
+        localStorage.setItem('user',JSON.stringify({...response.data,role:'patient'}))
         navigate('/patient')
       }else if(type === 'doctor'){
         response = await axios.post('http://localhost:5000/api/doctor/login', data);
+        localStorage.setItem('user',JSON.stringify({...response.data , role:'doctor'}))
         navigate('/doctor')
       }else if(type === 'admin'){
         response = await axios.post('http://localhost:5000/api/admin/login', data);
+        localStorage.setItem('user',JSON.stringify({...response.data , role:'doctor'}))
         navigate('/admin')
       }
       console.log('login successul',response.data)
