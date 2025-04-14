@@ -40,4 +40,30 @@ const loginPatient = async(req,res) =>{
     }
 }
 
-module.exports = { registerPatient, loginPatient }
+
+
+const getPatients = async(req,res)=>{
+    try{
+        const patients = await Patient.find()
+        res.json(patients)
+    }catch(err){
+        console.error(err)
+        res.status(500).json({error:'Server error'})
+    }
+}
+
+const getPatientbyEmail = async(req,res)=>{
+    try{
+        const {email} = req.params 
+        console.log(email)
+        const patient = await Patient.findOne({email})
+        if (!patient) return res.status(404).json({ message: "Doctor not found" })
+        res.json(patient)
+    }catch (err) {
+        console.error(err)
+        res.status(500).json({ error: "Server error" })
+    }
+}
+
+
+module.exports = { registerPatient, loginPatient,getPatients,getPatientbyEmail}
