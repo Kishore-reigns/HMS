@@ -17,7 +17,8 @@ const postAppointment = async(req,res) =>{
 const getAppointment = async(req,res)=>{
     try{
         const appointments = await Appointment.find()
-        res.json(appointments)
+        console.log(appointments)
+        res.status(200).json(appointments)
     }catch(err){
         console.error(err)
         res.status(500).json({error:'server error'})

@@ -3,6 +3,6 @@ const router = express.Router()
 const  {postAppointment,getAppointment} = require('../Controller/AppointmentController')
 
 router.post('/book',postAppointment)
-router.post('/getAppointments',getAppointment)
+router.get('/',getAppointment)
 
 module.exports = router

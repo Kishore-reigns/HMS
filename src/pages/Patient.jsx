@@ -4,6 +4,7 @@ import PatientSideBar from '../components/SIdeBar/PatientSideBar';
 import { Box } from '@mui/material'
 import AllFooter from '../components/Header_Footer/AllFooter';
 import BookAppointment from '../components/Patient/BookAppointment';
+import ViewAppointment from '../components/Patient/ViewAppointment';
 
 const Patient = () => {
 
@@ -43,6 +44,7 @@ const Patient = () => {
         >
       
           <BookAppointment/>
+          <ViewAppointment/>
         </Box>
         
       </Box>
