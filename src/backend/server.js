@@ -5,6 +5,7 @@ const roleRoutes = require('./Routes/roleRoutes')
 const patientRoutes = require('./Routes/patientRoutes')
 const doctorRoutes = require('./Routes/doctorRoutes')
 const adminRoutes = require('./Routes/AdminRoutes')
+const appointmentRoutes = require('./Routes/AppointmentRoutes')
 
 const PORT = 5000
 const app = express()
@@ -21,6 +22,7 @@ app.use('/api/roles',roleRoutes)
 app.use('/api/patient',patientRoutes)
 app.use('/api/doctor',doctorRoutes)
 app.use('/api/admin',adminRoutes)
+app.use('/api/appointments',appointmentRoutes)
 
 
 app.listen(PORT, ()=>{

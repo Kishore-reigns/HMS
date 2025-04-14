@@ -16,6 +16,24 @@ const BookAppointment = () => {
         })
     },[])
 
+    let handleBook = async (docEmail) =>{
+
+      console.log('hi',localStorage.getItem('user'))
+      const patEmail = JSON.parse(localStorage.getItem('user'))?.patient?.email
+      console.log(patEmail,docEmail)
+
+      const data = {patientEmail:patEmail,doctorEmail:docEmail,date:new Date()}
+
+      try{
+        const res = await axios.post('http://localhost:5000/api/appointments/book',data)
+        console.log('added appointment')
+      }catch(err){
+        console.error('Error booking appointment',err)
+
+      }
+
+    }
+
 
   return (
     <Box sx={{ padding: 4 }}>
@@ -42,7 +60,7 @@ const BookAppointment = () => {
                 <Typography variant="body2">Phone: {doc.phone}</Typography>
                 <Typography variant="body2">MLN: {doc.mln}</Typography>
               </CardContent>
-              <Button variant="contained" color="secondary" sx={{ mt: 2 }}>
+              <Button variant="contained" color="secondary" sx={{ mt: 2 }} onClick={ ()=>handleBook(doc.email)}>
                 Book Appointment
               </Button>
             </Card>
