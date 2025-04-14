@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useEffect ,useState} from 'react'
+import { Card, CardContent, Typography, Button,Grid,Box}from '@mui/material'
 
 const BookAppointment = () => {
     const [doctors, setDoctors] = useState([])
@@ -17,16 +18,34 @@ const BookAppointment = () => {
 
 
   return (
-    <div>
-    <h2>Available Doctors</h2>
-    {doctors.map((doc, idx) => (
-      <div key={idx}>
-        <p>{doc.firstName} {doc.lastName}</p>
-        <p>Email: {doc.email}</p>
-        <hr />
-      </div>
-    ))}
-  </div>
+    <Box sx={{ padding: 4 }}>
+      <Typography variant="h4" gutterBottom>
+        BOOK AN APPOINTMENT
+      </Typography>
+
+      <Grid container spacing={3}>
+        {doctors.map((doc, idx) => (
+          <Grid item xs={12} sm={6} md={4} key={idx}>
+            <Card sx={{ Height: 400, width:300, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', p: 2, borderRadius: 4, boxShadow: 10 }}>
+              <CardContent>
+                <Typography variant="h6" color="primary">
+                  Dr. {doc.firstName} {doc.lastName}
+                </Typography>
+                <Typography variant="body2">Qualification: {doc.qualification}</Typography>
+                <Typography variant="body2">Specialization: {doc.specialization}</Typography>
+                <Typography variant="body2">Experience: {doc.yoe} years</Typography>
+                <Typography variant="body2">Email: {doc.email}</Typography>
+                <Typography variant="body2">Phone: {doc.phone}</Typography>
+                <Typography variant="body2">MLN: {doc.mln}</Typography>
+              </CardContent>
+              <Button variant="contained" color="secondary" sx={{ mt: 2 }}>
+                Book Appointment
+              </Button>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
   )
 
 }
