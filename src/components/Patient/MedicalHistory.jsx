@@ -8,6 +8,7 @@ const MedicalHistory = () => {
 
   useEffect(()=>{
      setHistory(JSON.parse(localStorage.getItem('user'))?.patient?.medicalHistory)
+     console.log('medial history : ',history)
   },[])
 
 
