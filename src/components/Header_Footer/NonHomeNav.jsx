@@ -24,7 +24,7 @@ const NonHomeNav = () => {
     }
 
   return (
-    <AppBar position='staitc'>
+    <AppBar position='fixed'>
         <Toolbar>
             <Typography variant='h5' component='div' sx={{flexGrow:1}}>KR HMS</Typography>
             

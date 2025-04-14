@@ -1,8 +1,9 @@
 const express = require('express')
-const { registerDoctor , loginDoctor } = require('../Controller/DoctorController')
+const { registerDoctor , loginDoctor,getDoctors } = require('../Controller/DoctorController')
 const router = express.Router()
 
 router.post('/register',registerDoctor)
 router.post('/login',loginDoctor)
+router.get('/getDoctors',getDoctors)
 
 module.exports = router 

@@ -35,4 +35,15 @@ const loginDoctor = async(req,res)=>{
     }
 }
 
-module.exports = {registerDoctor,loginDoctor}
+// getDoctorsList
+const getDoctors = async(req,res)=>{
+    try{
+        const doctors = await Doctor.find()
+        res.json(doctors)
+    }catch(err){
+        console.error(err)
+        res.status(500).json({error:'Server error'})
+    }
+}
+
+module.exports = {registerDoctor,loginDoctor,getDoctors}
