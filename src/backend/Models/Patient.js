@@ -57,7 +57,16 @@ const patientSchema = new mongoose.Schema({
   hip: {
     type: String,
     required: true
+  },
+  medicalHistory: {
+    type: [{
+      condition: String,
+      diagnosedOn: Date,
+      notes: String
+    }],
+    default: []
   }
+  
 }, { timestamps: true })
 
 const Patient = mongoose.model('Patient', patientSchema)

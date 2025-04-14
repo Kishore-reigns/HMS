@@ -1,6 +1,8 @@
 
 const Patient = require('../Models/Patient')
 
+
+
 // register
 const registerPatient = async(req,res) =>{
     try{

@@ -5,6 +5,7 @@ import { Box } from '@mui/material'
 import AllFooter from '../components/Header_Footer/AllFooter';
 import BookAppointment from '../components/Patient/BookAppointment';
 import ViewAppointment from '../components/Patient/ViewAppointment';
+import MedicalHistory from '../components/Patient/MedicalHistory';
 
 const Patient = () => {
 
@@ -42,9 +43,13 @@ const Patient = () => {
             p: 3,
           }}
         >
-      
+          
+        
           <BookAppointment/>
           <ViewAppointment/>
+            <MedicalHistory/>
+          
+        
         </Box>
         
       </Box>
