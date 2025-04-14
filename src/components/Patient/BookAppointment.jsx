@@ -26,7 +26,11 @@ const BookAppointment = () => {
       <Grid container spacing={3}>
         {doctors.map((doc, idx) => (
           <Grid item xs={12} sm={6} md={4} key={idx}>
-            <Card sx={{ Height: 400, width:300, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', p: 2, borderRadius: 4, boxShadow: 10 }}>
+            <Card sx={{ Height: 400, width:300, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', p: 2, borderRadius: 4, boxShadow: 3, 
+                '&:hover':{
+                    boxShadow:20,
+                }
+        }}>
               <CardContent>
                 <Typography variant="h6" color="primary">
                   Dr. {doc.firstName} {doc.lastName}
