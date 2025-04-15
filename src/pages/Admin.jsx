@@ -4,6 +4,8 @@ import React, {useEffect , useState} from 'react'
 import {Box} from '@mui/material'
 import AllFooter from '../components/Header_Footer/AllFooter';
 import AdminSideBar from '../components/SIdeBar/AdminSideBar';
+import ViewDoctors from '../components/Admin/ViewDoctors';
+import ViewPatients from '../components/Admin/ViewPatients';
 
 
 const Admin = () => {
@@ -45,7 +47,8 @@ const Admin = () => {
           }}
         >
           
-        
+        <ViewDoctors/>
+        <ViewPatients/>
     
         
         </Box>
