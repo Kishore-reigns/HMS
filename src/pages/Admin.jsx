@@ -1,6 +1,10 @@
 
 import NonHomeNav from '../components/Header_Footer/NonHomeNav'
 import React, {useEffect , useState} from 'react'
+import {Box} from '@mui/material'
+import AllFooter from '../components/Header_Footer/AllFooter';
+import AdminSideBar from '../components/SIdeBar/AdminSideBar';
+
 
 const Admin = () => {
 
@@ -16,14 +20,38 @@ const Admin = () => {
     
   
     <>
-     <NonHomeNav/>
-      <div>
-        <h1> Admin</h1>
-      </div>
-
-      <div>
-        <h5>{user}</h5>
-      </div>
+      <NonHomeNav />
+      <Box sx={{ display: 'flex', pt :'64px'}}>
+        
+      <Box sx={{
+          width: 240, 
+          flexShrink: 0,
+          marginTop: '64px', 
+          height: 'calc(100vh - 64px)', 
+          position: 'sticky',
+          top: 0,
+          overflow:'auto'
+        }}>
+          <AdminSideBar/>
+        </Box>
+     
+ 
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            bgcolor: 'background.default',
+            p: 3,
+          }}
+        >
+          
+        
+    
+        
+        </Box>
+        
+      </Box>
+      <AllFooter/>
     </>
    
   )
