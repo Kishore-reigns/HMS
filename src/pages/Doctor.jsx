@@ -4,6 +4,7 @@ import React, {useEffect , useState} from 'react'
 import {Box} from '@mui/material'
 import AllFooter from '../components/Header_Footer/AllFooter';
 import DoctorSideBar from '../components/SIdeBar/DoctorSideBar';
+import ViewAppointment from '../components/Doctor/ViewAppointment';
 
 const Doctor = () => {
 
@@ -31,7 +32,7 @@ const Doctor = () => {
         }}>
           <DoctorSideBar/>
         </Box>
-        
+        <ViewAppointment/>
  
         <Box
           component="main"
