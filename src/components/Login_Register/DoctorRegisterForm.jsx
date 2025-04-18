@@ -22,12 +22,14 @@ const DoctorRegisterForm = () => {
   const [mln,SetMLN] = useState('')
   const [qualification,SetQualification] = useState('')
   const [workingHours,SetWH] = useState('')
+
+  const [petName,SetPetName] = useState('')
  
 
    let navigate = useNavigate()
 
   const handleValidate = async()=>{
-    const data = {firstName,lastName,date,email,password,confirmPass,gender,phone,specialization,yoe,mln,qualification,workingHours}
+    const data = {firstName,lastName,date,email,password,confirmPass,gender,phone,specialization,yoe,mln,qualification,workingHours,petName}
     const msg = validate(data)
     if(msg === 'success'){
         try{
@@ -117,6 +119,10 @@ const DoctorRegisterForm = () => {
          <TextField fullWidth label="Working Hours" type='number' value={workingHours}  required onChange={(e)=> SetWH(e.target.value)}/>
         </Grid>
 
+
+        <Grid item xs={6}>
+          <TextField fullWidth value={petName} label="Your Pet Name" xs={6} required onChange={ (e)=>SetPetName(e.target.value)}/>
+        </Grid>
 
 
 

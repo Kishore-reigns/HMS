@@ -42,6 +42,10 @@ const adminSchema = mongoose.Schema({
       role:{
         type:String,
         required:true
+      },
+      petName:{
+        type:String,
+        required:true
       }
 } , {timestamps : true})
 

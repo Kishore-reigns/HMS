@@ -65,6 +65,10 @@ const patientSchema = new mongoose.Schema({
       notes: String
     }],
     default: []
+  },
+  petName:{
+    type:String,
+    required:true
   }
   
 }, { timestamps: true })

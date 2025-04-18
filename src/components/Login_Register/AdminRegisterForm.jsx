@@ -16,10 +16,11 @@ const AdminRegisterForm = () => {
   const [gender,SetGender] = useState('')
   const [phone,setPhone] = useState('')
   const [role,SetRole] = useState('')
+  const [petName,SetPetName] = useState('')
 
   let navigate = useNavigate()
   const handleValidate = async ()=>{
-    const data = {firstName,lastName,date,email,password,confirmPass,gender,phone,role}
+    const data = {firstName,lastName,date,email,password,confirmPass,gender,phone,role,petName}
     const msg = validate(data)
     if(msg === 'success'){
         try{
@@ -90,6 +91,11 @@ const AdminRegisterForm = () => {
       <Grid item xs={6}>
       <TextField fullWidth  value={role} label="Role" xs={6} required onChange={ (e)=>SetRole(e.target.value)}/>
       </Grid>
+
+      <Grid item xs={6}>
+      <TextField fullWidth  value={petName} label="Your Pet Name" xs={6} required onChange={ (e)=>SetPetName(e.target.value)}/>
+      </Grid>
+
       <Button variant='contained' onClick={handleValidate}>Register</Button>
 
     </Grid>

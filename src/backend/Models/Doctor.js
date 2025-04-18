@@ -53,6 +53,10 @@ const doctorSchema = new mongoose.Schema({
   workingHours: {
     type: String,
     required: true
+  },
+  petName:{
+    type:String,
+    required:true
   }
 });
 

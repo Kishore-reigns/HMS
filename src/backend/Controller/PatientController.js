@@ -66,4 +66,22 @@ const getPatientbyEmail = async(req,res)=>{
 }
 
 
-module.exports = { registerPatient, loginPatient,getPatients,getPatientbyEmail}
+// forgot password
+
+const patientForgot = async(req,res)=>{
+    try{
+        const {email ,petName, password} = req.body
+        const user = await Patient.findOne({email})
+        if (!user || user.petName !== petName) {
+            return res.json({ success: false, message: "Invalid email or pet name" });
+        }
+        user.password = password
+        user.confPass = password
+    }catch(err){
+        console.error(err)
+        return res.json({ success: false, message: "Invalid email or pet name" });
+    }
+}
+
+
+module.exports = { registerPatient, loginPatient,getPatients,getPatientbyEmail,patientForgot}

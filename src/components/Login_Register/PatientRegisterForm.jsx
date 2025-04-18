@@ -19,11 +19,12 @@ const PatientRegisterForm = () => {
   const [emergencyCon, SetEmergencyContact] = useState('')
   const [hin, SetHIN] = useState('')
   const [hip, SetHIP] = useState('')
+  const [petName,SetPetName] = useState('')
 
   let navigate = useNavigate()
 
   const handleValidate = async () => {
-    const data = { firstName, lastName, dob, email, password, confirmPass,gender, phone, bloodgrp, address, emergencyCon, hin, hip }
+    const data = { firstName, lastName, dob, email, password, confirmPass,gender, phone, bloodgrp, address, emergencyCon, hin, hip,petName}
     console.log(dob)
     const msg = validate(data)
     if (msg === 'success') {
@@ -191,6 +192,10 @@ const PatientRegisterForm = () => {
             value={hip}
             onChange={(e) => SetHIP(e.target.value)}
           />
+        </Grid>
+
+        <Grid item xs={6}>
+          <TextField fullWidth value={petName} label="Your Pet Name" xs={6} required onChange={ (e)=>SetPetName(e.target.value)}/>
         </Grid>
 
         <Button variant="contained" onClick={handleValidate}>

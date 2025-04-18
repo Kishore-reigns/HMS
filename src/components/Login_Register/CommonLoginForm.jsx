@@ -39,6 +39,10 @@ const CommonLoginForm = ({type}) => {
    
   }
 
+  const handleForgetPassword = () =>{
+      navigate('/forgotpassword')
+  }
+
 
 
 
@@ -66,6 +70,9 @@ const CommonLoginForm = ({type}) => {
         </Grid>
         <Grid item>
           <Button fullWidth variant="contained" color="primary" onClick={handleLogin}>Login</Button>
+        </Grid>
+        <Grid item>
+          <Button fullWidth variant="contained" color="warning" onClick={handleForgetPassword}>Forget Password</Button>
         </Grid>
       </Grid>
     </Container>
