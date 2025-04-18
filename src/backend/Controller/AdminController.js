@@ -38,4 +38,25 @@ const loginAdmin = async(req,res) =>{
     }
 }
 
-module.exports = { registerAdmin, loginAdmin}
+
+// forgot password
+
+const Forgot = async(req,res)=>{
+    try{
+        const {email ,petName, password} = req.body
+        const user = await Admin.findOne({email})
+        
+        if (!user || user.petName !== petName) {
+            return res.json({ success: false, message: "Invalid email or pet name" });
+        }
+        user.password = password
+        user.confirmPass = password
+        await user.save()
+        return res.json({ success: true, message: "set successfully" });
+    }catch(err){
+        console.error(err)
+        return res.json({ success: false, message: "Invalid email or pet name" });
+    }
+}
+
+module.exports = { registerAdmin, loginAdmin,Forgot}

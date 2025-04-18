@@ -40,7 +40,16 @@ const CommonLoginForm = ({type}) => {
   }
 
   const handleForgetPassword = () =>{
-      navigate('/forgotpassword')
+    if(type === 'patient'){
+   
+      navigate('/forgotpassword_patient')
+    }else if(type === 'doctor'){
+
+      navigate('/forgotpassword_doctor')
+    }else if(type === 'admin'){
+
+      navigate('/forgotpassword_admin')
+    }
   }
 
 

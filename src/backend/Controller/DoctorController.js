@@ -59,4 +59,27 @@ const getDoctorbyEmail = async(req,res)=>{
     }
 }
 
-module.exports = {registerDoctor,loginDoctor,getDoctors,getDoctorbyEmail}
+
+
+// forgot password
+
+const Forgot = async(req,res)=>{
+    try{
+        console.log('entered func')
+        const {email ,petName, password} = req.body
+        const user = await Doctor.findOne({email})
+        if (!user || user.petName !== petName) {
+            
+            return res.json({ success: false, message: "Invalid email or pet name" });
+        }
+        user.password = password
+        user.confirmPass = password
+        await user.save()
+        return res.json({ success: true, message: "set successfully" });
+    }catch(err){
+        console.error(err)
+        return res.json({ success: false, message: "Invalid email or pet name" });
+    }
+}
+
+module.exports = {registerDoctor,loginDoctor,getDoctors,getDoctorbyEmail,Forgot}

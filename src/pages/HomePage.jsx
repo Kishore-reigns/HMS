@@ -1,10 +1,9 @@
 import React from 'react';
 import Nav from '../components/Header_Footer/Nav';
 import {
-  AppBar,
-  Toolbar,
+
   Typography,
-  Button,
+
   Container,
   Grid,
   Card,

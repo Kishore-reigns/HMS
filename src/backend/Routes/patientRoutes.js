@@ -6,6 +6,6 @@ router.post('/register',registerPatient)
 router.post('/login',loginPatient)
 router.get('/getPatients',getPatients)
 router.get('/getPatient/:email',getPatientbyEmail)
-router.get('/forget-password',patientForgot)
+router.post('/forgotPassword',patientForgot)
 
 module.exports = router

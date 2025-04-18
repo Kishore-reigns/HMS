@@ -67,16 +67,23 @@ const getPatientbyEmail = async(req,res)=>{
 
 
 // forgot password
-
 const patientForgot = async(req,res)=>{
+    console.log('entered func')
     try{
         const {email ,petName, password} = req.body
         const user = await Patient.findOne({email})
+
+        console.log(user)
+
         if (!user || user.petName !== petName) {
             return res.json({ success: false, message: "Invalid email or pet name" });
         }
+
+        console.log('crossed if')
         user.password = password
-        user.confPass = password
+        user.confirmPass = password
+        await user.save()
+        return res.json({ success: true, message: "set successfully" });
     }catch(err){
         console.error(err)
         return res.json({ success: false, message: "Invalid email or pet name" });

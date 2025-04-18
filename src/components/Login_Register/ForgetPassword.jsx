@@ -18,6 +18,7 @@ const ForgetPassword = ({type}) => {
 
   const handleUpdate = async()=>{
     const data = {email,petName,password}
+    let response = ''
 
     if(password !== confpassword){
         alert("Passwords do not match");
@@ -37,11 +38,20 @@ const ForgetPassword = ({type}) => {
           }
 
 
-          if(response.data.success){
+          if(response.data.success == true){
             alert("Password updated successfully!");
-            navigate("/login");
+            if(type === 'patient'){
+                navigate("/role/PatientLogin");
+            }
+            else if(type === 'doctor'){
+                navigate("/role/DoctorLogin");
+            }
+            else if(type === 'admin'){
+                navigate("/role/AdminLogin");
+            }
+            
           }else{
-            alert('something went wrong')
+            alert(response.data.success + ' '+ response.data.message)
           }
 
 
