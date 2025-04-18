@@ -20,10 +20,14 @@ const Nav = () => {
     nav('/contact')
   }
 
+  let gotoHome = ()=>{
+    nav('/')
+  }
+
   return (
     <AppBar position='staitc'>
         <Toolbar>
-            <Typography variant='h5' component='div' sx={{flexGrow:1}}>KR HMS</Typography>
+            <Typography variant='h5' component='div' sx={{flexGrow:1}} onClick={gotoHome}>KRMV HMS</Typography>
 
             <Button color = "inherit" onClick={ () => NavigateToRole('login')}>Login</Button>
             <Button color = "inherit" onClick={ () => NavigateToRole('register')} >Register</Button>
