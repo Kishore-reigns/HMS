@@ -62,7 +62,13 @@ const HomePage = () => {
             Welcome to KRMV HMS
           </Typography>
           <Typography variant="h6" sx={{ mb: 3 }}>
-            Streamlining Hospital Operations with Smart Healthcare Solutions
+            Streamlining Hospital Operations with Smart Healthcare Solutions.
+          </Typography>
+          <Typography variant="h6" sx={{ mb: 3 }}>
+            Register and view our demo.
+          </Typography>
+          <Typography variant="h6" sx={{ mb: 3 }}>
+           To use our full features, Buy our product for Rs.2500
           </Typography>
         
         </Container>

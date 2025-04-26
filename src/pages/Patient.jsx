@@ -6,15 +6,32 @@ import AllFooter from '../components/Header_Footer/AllFooter';
 import BookAppointment from '../components/Patient/BookAppointment';
 import ViewAppointment from '../components/Patient/ViewAppointment';
 import MedicalHistory from '../components/Patient/MedicalHistory';
+import {Typography} from '@mui/material'
 
 const Patient = () => {
 
   const [user, setUser] = useState('')
+  const [selectIndex,setSelectedIndex] = useState(0)
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user')
     setUser(storedUser)
   }, []);
+
+  const renderContent = () =>{
+    switch (selectIndex) {
+      case 0:
+        return <BookAppointment />;
+      case 1:
+        return <ViewAppointment />;
+      case 2:
+        return <MedicalHistory />;
+      case 3:
+        return <Typography variant="h6">Download Report Component Coming Soon!</Typography>;
+      default:
+        return null;
+    }
+  }
 
   return (
     <>
@@ -31,7 +48,10 @@ const Patient = () => {
           top: 0,
           overflow:'auto'
         }}>
-          <PatientSideBar />
+          <PatientSideBar 
+            selectIndex={selectIndex}
+            setSelectedIndex={setSelectedIndex}
+          />
         </Box>
         
  
@@ -44,10 +64,8 @@ const Patient = () => {
           }}
         >
           
-        
-          <BookAppointment/>
-          <ViewAppointment/>
-            <MedicalHistory/>
+          {renderContent()}
+       
           
         
         </Box>

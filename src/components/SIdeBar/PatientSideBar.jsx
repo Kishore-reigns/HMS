@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Drawer, List, ListItem, ListItemText, Box, Typography } from '@mui/material';
 
-const PatientSideBar = () => {
-    const [selectedIndex, setSelectedIndex] = useState(0);
+const PatientSideBar = ({selectIndex,setSelectedIndex}) => {
+  
 
     const handleButtonClick = (index) => {
         console.log(index)
@@ -31,7 +31,7 @@ const PatientSideBar = () => {
                         <ListItem 
                             button 
                             key={text}
-                            selected={selectedIndex === index}
+                            selected={selectIndex === index}
                             onClick={() => handleButtonClick(index)}
                             sx={{
                                 '&.Mui-selected': {
