@@ -31,35 +31,31 @@ const theme = createTheme({
 
 const pricingModules = [
   {
-    title: "Patient Module",
-    price: "₹999/year",
+    title: "Tier 1",
+    price: "₹799/year",
     features: [
-      "View & download medical records",
-      "Appointment booking system",
-      "Medication & health reminders",
-      "Secure communication with doctors"
+      "This includes the features which are available in demo version",
+      "New features will be included in batch updates",
+      
     ]
   },
   {
-    title: "Doctor Module",
+    title: "Tier 2",
     price: "₹1999/year",
     features: [
+        "Medication & health reminders",
+        "Secure communication with doctors",
       "Manage appointments & schedules",
       "Access patient history instantly",
       "Prescription management system",
-      "Analytics on patient care"
-    ]
-  },
-  {
-    title: "Admin Module",
-    price: "₹2999/year",
-    features: [
+      "Analytics on patient care",
       "Hospital-wide user management",
       "Data analytics & reporting tools",
       "Resource allocation dashboard",
       "Access control & system settings"
     ]
-  }
+  },
+ 
 ];
 
 const BuyNow = () => {

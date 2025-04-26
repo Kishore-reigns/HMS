@@ -1,9 +1,11 @@
 import React from 'react';
 import Nav from '../components/Header_Footer/Nav';
+import { useNavigate } from 'react-router-dom'
+
 import {
 
   Typography,
-
+  Button,
   Container,
   Grid,
   Card,
@@ -18,7 +20,7 @@ import patientImg from '../images/patient.jpg';
 import doctorimg from '../images/doctor.webp';
 import adminimg from '../images/admin.webp'
 
-// Custom theme
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -43,12 +45,19 @@ const theme = createTheme({
 });
 
 const HomePage = () => {
+
+  let nav = useNavigate()
+
+  let handleBuy = () =>{
+    nav('/buyNow')
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Nav />
 
-      {/* Hero Section */}
+  
       <Box
         sx={{
           bgcolor: "primary.main",
@@ -68,8 +77,13 @@ const HomePage = () => {
             Register and view our demo.
           </Typography>
           <Typography variant="h6" sx={{ mb: 3 }}>
-           To use our full features, Buy our product for Rs.2500
+           To use our full features, Buy our product for just Rs.1999
           </Typography>
+          <Box sx={{ p: 2 }}>
+                  <Button onClick={handleBuy}variant="contained" color="primary" sx={{ bgcolor: '#FFD700', color: '#000', '&:hover': { bgcolor: '#FFC107' } }}>
+                    Buy Now
+                  </Button>
+                </Box>
         
         </Container>
       </Box>
@@ -143,7 +157,6 @@ const HomePage = () => {
   </Grid>
 </Container>
 
-      {/* Testimonials Section */}
       <Box sx={{ bgcolor: "#E3F2FD", py: 8, mt: 10 }}>
         <Container>
           <Typography variant="h4" align="center" gutterBottom>
@@ -198,7 +211,6 @@ const HomePage = () => {
         </Container>
       </Box>
 
-      {/* FAQ Section */}
 <Box sx={{ bgcolor: "#fff", py: 8, mt: 10 }}>
   <Container>
     <Typography variant="h4" align="center" gutterBottom>

@@ -27,7 +27,7 @@ const Patient = () => {
       case 2:
         return <MedicalHistory />;
       case 3:
-        return <Typography variant="h6">Download Report Component Coming Soon!</Typography>;
+        return <Typography variant="h6">Buy our product to unlock this feature</Typography>;
       default:
         return null;
     }
