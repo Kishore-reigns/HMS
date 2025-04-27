@@ -74,7 +74,7 @@ const HomePage = () => {
             Streamlining Hospital Operations with Smart Healthcare Solutions.
           </Typography>
           <Typography variant="h6" sx={{ mb: 3 }}>
-            Register and view our demo.
+            Register and Login to view a quick demo of our product.
           </Typography>
           <Typography variant="h6" sx={{ mb: 3 }}>
            To use our full features, Buy our product for just Rs.1999

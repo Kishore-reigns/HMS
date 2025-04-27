@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import axios from 'axios'
 import { Button, Container, Grid, TextField, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import validate from '../../js/validatePassword'
 
 
 
@@ -17,11 +18,16 @@ const ForgetPassword = ({type}) => {
 
 
   const handleUpdate = async()=>{
-    const data = {email,petName,password}
+    const data = {email,petName,password,confpassword}
     let response = ''
 
-    if(password !== confpassword){
-        alert("Passwords do not match");
+    
+
+    let msg = validate(data)
+
+    if( msg !== "success"){
+        console.log(msg)
+        alert(msg);
         return;
     }
 
