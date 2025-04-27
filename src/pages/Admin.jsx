@@ -6,16 +6,36 @@ import AllFooter from '../components/Header_Footer/AllFooter';
 import AdminSideBar from '../components/SIdeBar/AdminSideBar';
 import ViewDoctors from '../components/Admin/ViewDoctors';
 import ViewPatients from '../components/Admin/ViewPatients';
+import BluredBuy from './BluredBuy';
 
 
 const Admin = () => {
 
   const [user , setUser] = useState('')
+  const [selectIndex,setSelectedIndex] = useState(0)
 
   useEffect(()=>{
     const storedUser = localStorage.getItem('user')
     setUser(storedUser)
   },[]);
+
+  const renderContent = () =>{
+    switch (selectIndex) {
+      case 0:
+        return <ViewDoctors/>;
+      case 1:
+        return <ViewPatients/>;
+      case 2:
+        return <BluredBuy />;
+      case 3:
+        return <BluredBuy/>;
+      case 4:
+        return <BluredBuy/>;
+      default:
+        return null;
+    }
+  }
+
 
 
   return (
@@ -34,7 +54,10 @@ const Admin = () => {
           top: 0,
           overflow:'auto'
         }}>
-          <AdminSideBar/>
+          <AdminSideBar 
+          selectIndex={selectIndex}
+          setSelectedIndex={setSelectedIndex}
+          />
         </Box>
      
  
@@ -47,8 +70,8 @@ const Admin = () => {
           }}
         >
           
-        <ViewDoctors/>
-        <ViewPatients/>
+      
+          {renderContent() }
     
         
         </Box>

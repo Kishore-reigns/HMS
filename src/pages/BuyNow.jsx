@@ -35,6 +35,7 @@ const pricingModules = [
     price: "₹799/year",
     features: [
       "This includes the features which are available in demo version",
+      "Patient and Dotors can remove the appoinments",
       "New features will be included in batch updates",
       
     ]

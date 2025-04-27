@@ -5,15 +5,32 @@ import {Box} from '@mui/material'
 import AllFooter from '../components/Header_Footer/AllFooter';
 import DoctorSideBar from '../components/SIdeBar/DoctorSideBar';
 import ViewAppointment from '../components/Doctor/ViewAppointment';
+import BluredBuy from './BluredBuy';
 
 const Doctor = () => {
 
   const [user , setUser] = useState('')
+  const [selectIndex,setSelectedIndex] = useState(0)
 
   useEffect(()=>{
     const storedUser = localStorage.getItem('user')
     setUser(storedUser)
   },[]);
+
+
+  const renderContent = () =>{
+    switch (selectIndex) {
+      case 0:
+        return <ViewAppointment/>;
+      case 1:
+        return <BluredBuy/>;
+      case 2:
+        return <BluredBuy/>;
+      default:
+        return null;
+    }
+  }
+
 
   return (
     <>
@@ -30,10 +47,14 @@ const Doctor = () => {
           top: 0,
           overflow:'auto'
         }}>
-          <DoctorSideBar/>
+          <DoctorSideBar
+           selectIndex={selectIndex}
+           setSelectedIndex={setSelectedIndex}
+           />
         </Box>
-        <ViewAppointment/>
- 
+        
+        {renderContent()}
+
         <Box
           component="main"
           sx={{

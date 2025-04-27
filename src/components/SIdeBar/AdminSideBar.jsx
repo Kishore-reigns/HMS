@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Drawer, List, ListItem, ListItemText, Box, Typography } from '@mui/material';
 
-const AdminSideBar = () => {
-    const [selectedIndex, setSelectedIndex] = useState(0);
+const AdminSideBar = ({selectIndex,setSelectedIndex}) => {
+   
 
     const handleButtonClick = (index) => {
         console.log(index)
@@ -31,7 +31,7 @@ const AdminSideBar = () => {
                         <ListItem 
                             button 
                             key={text}
-                            selected={selectedIndex === index}
+                            selected={selectIndex === index}
                             onClick={() => handleButtonClick(index)}
                             sx={{
                                 '&.Mui-selected': {

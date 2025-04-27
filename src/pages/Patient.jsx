@@ -7,6 +7,7 @@ import BookAppointment from '../components/Patient/BookAppointment';
 import ViewAppointment from '../components/Patient/ViewAppointment';
 import MedicalHistory from '../components/Patient/MedicalHistory';
 import {Typography} from '@mui/material'
+import BluredBuy from './BluredBuy';
 
 const Patient = () => {
 
@@ -27,7 +28,7 @@ const Patient = () => {
       case 2:
         return <MedicalHistory />;
       case 3:
-        return <Typography variant="h6">Buy our product to unlock this feature</Typography>;
+        return <BluredBuy/>;
       default:
         return null;
     }
