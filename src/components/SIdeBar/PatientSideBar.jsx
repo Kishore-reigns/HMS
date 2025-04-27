@@ -27,7 +27,7 @@ const PatientSideBar = ({selectIndex,setSelectedIndex}) => {
         >
             <Box sx={{ overflow: 'auto' }}>
                 <List>
-                    {['Book Appointment', 'View Appointment', 'Medical History', 'Download Report'].map((text, index) => (
+                    {['Book Appointment', 'View Appointment', 'Download Report'].map((text, index) => (
                         <ListItem 
                             button 
                             key={text}

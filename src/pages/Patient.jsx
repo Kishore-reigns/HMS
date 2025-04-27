@@ -26,8 +26,6 @@ const Patient = () => {
       case 1:
         return <ViewAppointment />;
       case 2:
-        return <MedicalHistory />;
-      case 3:
         return <BluredBuy/>;
       default:
         return null;
