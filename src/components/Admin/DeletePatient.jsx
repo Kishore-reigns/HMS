@@ -2,52 +2,52 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { TextField, Button, List, ListItem, ListItemText, Box } from '@mui/material';
 
-const DeleteDoctor = () => {
+const DeletePatient = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [doctors, setDoctors] = useState([]);
-  const [filteredDoctors, setFilteredDoctors] = useState([]);
+  const [patients, setPatients] = useState([]);
+  const [filteredPatients, setFilteredPatients] = useState([]);
 
 
-  const fetchDoctors = async () => {
+  const fetchPatients = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/doctor/getDoctors'); 
-      setDoctors(res.data);
-      setFilteredDoctors(res.data);
+      const res = await axios.get('http://localhost:5000/api/patient/getPatients'); 
+      setPatients(res.data);
+      setFilteredPatients(res.data);
     } catch (error) {
-      console.error('Error fetching doctors:', error);
+      console.error('Error fetching patients:', error);
     }
   };
 
   useEffect(() => {
-    fetchDoctors();
+    fetchPatients();
   }, []);
 
 
   const handleSearch = (e) => {
     const value = e.target.value.toLowerCase();
     setSearchTerm(value);
-    const filtered = doctors.filter(doc =>
-      doc.firstName.toLowerCase().includes(value)
+    const filtered = patients.filter(pat =>
+        pat.firstName.toLowerCase().includes(value)
     );
-    setFilteredDoctors(filtered);
+    setFilteredPatients(filtered);
   };
 
 
   const handleDelete = async (email) => {
     try {
-      await axios.delete(`http://localhost:5000/api/admin/deleteDoctor/${email}`);
-      alert('Doctor deleted successfully!');
-      fetchDoctors(); 
+      await axios.delete(`http://localhost:5000/api/admin/deletePatient/${email}`);
+      alert('Patient deleted successfully!');
+      fetchPatients(); 
     } catch (error) {
-      console.error('Error deleting doctor:', error);
-      alert('Failed to delete doctor');
+      console.error('Error deleting patient:', error);
+      alert('Failed to delete patient');
     }
   };
 
   return (
     <Box sx={{ p: 3 }}>
       <TextField
-        label="Search Doctor by Name"
+        label="Search Patient by Name"
         variant="outlined"
         fullWidth
         value={searchTerm}
@@ -56,9 +56,9 @@ const DeleteDoctor = () => {
       />
 
       <List>
-        {filteredDoctors.map((doctor) => (
+        {filteredPatients.map((pat) => (
           <ListItem
-            key={doctor._id}
+            key={pat._id}
             sx={{ 
               display: 'flex', 
               justifyContent: 'space-between', 
@@ -70,13 +70,13 @@ const DeleteDoctor = () => {
             }}
           >
             <ListItemText 
-              primary={doctor.firstName + doctor.lastName} 
-              secondary={doctor.email} 
+              primary={pat.firstName + pat.lastName} 
+              secondary={pat.email} 
             />
             <Button 
               variant="contained" 
               color="error"
-              onClick={() => handleDelete(doctor.email)}
+              onClick={() => handleDelete(pat.email)}
             >
               Delete
             </Button>
@@ -87,4 +87,4 @@ const DeleteDoctor = () => {
   );
 };
 
-export default DeleteDoctor;
+export default DeletePatient;

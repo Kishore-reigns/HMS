@@ -7,7 +7,8 @@ import AdminSideBar from '../components/SIdeBar/AdminSideBar';
 import ViewDoctors from '../components/Admin/ViewDoctors';
 import ViewPatients from '../components/Admin/ViewPatients';
 import BluredBuy from './BluredBuy';
-import DeleteDoctor from '../components/Doctor/DeleteDoctor';
+import DeleteDoctor from '../components/Admin/DeleteDoctor';
+import DeletePatient from '../components/Admin/DeletePatient';
 
 
 const Admin = () => {
@@ -31,7 +32,7 @@ const Admin = () => {
       case 3:
         return <DeleteDoctor/>;
       case 4:
-        return <BluredBuy/>;
+        return <DeletePatient/>;
       default:
         return null;
     }
