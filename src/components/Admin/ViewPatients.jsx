@@ -11,11 +11,11 @@ const ViewPatients = () => {
 
     useEffect(()=>{
         axios.get('http://localhost:5000/api/patient/getPatients').then((res)=>{
-            console.log('Fetched doctors',res.data)
+            console.log('Fetched patient : ',res.data)
             setPatients(res.data)
 
         }).catch((err)=>{
-            console.error('fetching error in doctors',err)
+            console.error('fetching error in patients',err)
         })
 
     },[])

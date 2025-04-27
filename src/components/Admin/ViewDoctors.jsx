@@ -43,6 +43,7 @@ const ViewDoctors = () => {
                 <Typography variant="body2">Email: {doc.email}</Typography>
                 <Typography variant="body2">Phone: {doc.phone}</Typography>
                 <Typography variant="body2">MLN: {doc.mln}</Typography>
+                <Typography variant="p" color ="warning">Account created at: {doc.createdAt}</Typography>
               </CardContent>
             
             </Card>

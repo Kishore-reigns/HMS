@@ -1,5 +1,7 @@
 
 const Admin = require('../Models/Admin')
+const Patient = require('../Models/Patient')
+const Doctor = require('../Models/Doctor')
 
 // register
 const registerAdmin = async(req,res) =>{
@@ -59,4 +61,43 @@ const Forgot = async(req,res)=>{
     }
 }
 
-module.exports = { registerAdmin, loginAdmin,Forgot}
+
+// delete patient
+const deletePatient = async(req,res) => {
+    try{
+
+        const {email} = req.params ;
+        const deletedPatient = await Patient.findOneAndDelete({email});
+
+        if(!deletedPatient){
+            return res.status(404).json({message:'Patient not found'})
+        }
+        res.status(200).json({message:'Patient deleted successfully'})
+
+    }catch(err){
+        console.error(err)
+        res.status(500).json({error:'server error'})
+    }
+}
+
+// delete doctor
+const deleteDoctor = async(req,res) => {
+    try{
+
+        const {email} = req.params ;
+        const deletedDoctor = await Doctor.findOneAndDelete({email});
+
+        if(!deletedDoctor){
+            return res.status(404).json({message:'Doctor not found'})
+        }
+        res.status(200).json({message:'Doctor deleted successfully'})
+
+    }catch(err){
+        console.error(err)
+        res.status(500).json({error:'server error'})
+    }
+}
+
+
+
+module.exports = { registerAdmin, loginAdmin,Forgot,deleteDoctor,deletePatient}
